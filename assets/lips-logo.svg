@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" role="img" aria-labelledby="title desc">
+  <title id="title">Laway-awayan lips icon</title>
+  <desc id="desc">A bold glossy pair of open lips mid-word, glowing pink and cyan.</desc>
+  <defs>
+    <linearGradient id="lipGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff2e88"/>
+      <stop offset="100%" stop-color="#c4136a"/>
+    </linearGradient>
+    <radialGradient id="mouthGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#00e5ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="60" cy="42" rx="46" ry="16" fill="url(#mouthGlow)" opacity="0.5"/>
+  <path d="M12 30 C 30 14, 46 10, 60 10 C 74 10, 90 14, 108 30 C 96 26, 80 22, 60 22 C 40 22, 24 26, 12 30 Z" fill="url(#lipGrad)"/>
+  <path d="M10 32 C 26 52, 44 62, 60 62 C 76 62, 94 52, 110 32 C 108 44, 96 58, 60 58 C 24 58, 12 44, 10 32 Z" fill="url(#lipGrad)"/>
+  <ellipse cx="60" cy="38" rx="34" ry="12" fill="#1c0a14"/>
+  <path d="M28 38 C 40 32, 80 32, 92 38 C 80 44, 40 44, 28 38 Z" fill="#ff6fa8"/>
+  <ellipse cx="30" cy="16" rx="8" ry="4" fill="#ffffff" opacity="0.55"/>
+</svg>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Laway-awayan 👄</title>
+<meta name="description" content="Laway-awayan — the silent lip-reading party game. Mouth the word, no sound at all, and let your team read your lips before the clock runs out.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👄</text></svg>">
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SETUP SCREEN -->
+  <section id="screen-setup" class="screen active">
+    <header class="hero">
+      <h1><img src="assets/lips-logo.svg" class="lips-logo" alt="" aria-hidden="true"> Laway-awayan</h1>
+      <p class="tagline">Mouth it. No sound. Read the lips.</p>
+    </header>
+
+    <div class="card setup-card">
+      <div class="setup-card-header">
+        <h2>Your Teams</h2>
+        <button id="resetBtn" class="btn-reset-link" type="button" title="Reset teams and settings">↺ Reset</button>
+      </div>
+      <div id="teamList" class="team-list"></div>
+      <div class="setup-row">
+        <button id="addTeamBtn" class="btn btn-secondary" type="button">+ Add Team</button>
+      </div>
+
+      <h2>Turn Length</h2>
+      <div class="chip-row" id="timerChoices">
+        <button class="chip" data-value="30" type="button">30s</button>
+        <button class="chip chip-active" data-value="60" type="button">60s</button>
+        <button class="chip" data-value="90" type="button">90s</button>
+        <button class="chip" data-value="120" type="button">120s</button>
+      </div>
+
+      <h2>Turns Per Team</h2>
+      <div class="chip-row" id="turnChoices">
+        <button class="chip" data-value="1" type="button">1</button>
+        <button class="chip chip-active" data-value="3" type="button">3</button>
+        <button class="chip" data-value="5" type="button">5</button>
+      </div>
+
+      <h2>Word Piles</h2>
+      <div id="categoryList" class="category-list"></div>
+
+      <button id="startGameBtn" class="btn btn-primary btn-lg" type="button">Start Mouthing 👄</button>
+    </div>
+
+    <footer class="rules-footer">
+      <details>
+        <summary>How to Play</summary>
+        <ul>
+          <li><strong>No sound, ever:</strong> The mouther sees one short clue — just one or two words — and mouths it to their team completely silently. No voice, no whisper, nothing.</li>
+          <li><strong>Team reads the lips:</strong> Everyone on the mouther's team watches their mouth and shouts guesses. The mouther taps <strong>Got it!</strong> the instant they're right, or <strong>Skip</strong> to move on — no penalties, ever.</li>
+          <li><strong>Score:</strong> One-word clues are worth +1, two-word clues are worth +2. Skips score nothing but cost nothing either.</li>
+          <li><strong>Time's up:</strong> Whatever's on screen when the buzzer hits is up for review next screen — you can fix a missed tap before it locks in.</li>
+          <li>Most points when every team has had their turns wins!</li>
+        </ul>
+      </details>
+    </footer>
+  </section>
+
+  <!-- HANDOFF SCREEN -->
+  <section id="screen-handoff" class="screen">
+    <div class="handoff-card">
+      <p class="handoff-label">Pass the phone to</p>
+      <h2 id="handoffTeamName" class="handoff-team">Team 1</h2>
+      <p class="handoff-sub">One mouther steps up. Everyone else on the team: eyes on their lips, not the screen!</p>
+      <div id="handoffScoreboard" class="mini-scoreboard"></div>
+      <button id="readyBtn" class="btn btn-primary btn-lg" type="button">We're Ready! 👄</button>
+    </div>
+  </section>
+
+  <!-- PLAY SCREEN -->
+  <section id="screen-play" class="screen">
+    <div class="play-top">
+      <div class="play-team" id="playTeamName">Team 1</div>
+      <div class="play-timer" id="playTimer">60</div>
+      <div class="play-score" id="playScore">0</div>
+    </div>
+
+    <div class="card-stage">
+      <div class="secret-card" id="secretCard">
+        <div class="secret-category" id="secretCategory">Category</div>
+        <div class="secret-phrase" id="secretPhrase">Word</div>
+        <div class="secret-points" id="secretPoints">worth +1</div>
+        <p class="mouth-reminder">🔇 Mouth it — no sound!</p>
+      </div>
+    </div>
+
+    <div class="play-actions">
+      <button id="gotItBtn" class="btn btn-gotit" type="button">✅ Got it!</button>
+      <button id="skipBtn" class="btn btn-skip" type="button">⏭ Skip</button>
+    </div>
+  </section>
+
+  <!-- ROUND END SCREEN -->
+  <section id="screen-roundEnd" class="screen">
+    <div class="card round-end-card">
+      <h2>Time's Up!</h2>
+      <p class="round-end-line" id="roundEndSummary">Team 1 lip-read their way to 4 points.</p>
+      <h3>Turn Review <span class="round-log-hint">(tap to fix a call)</span></h3>
+      <div id="roundLog" class="round-log"></div>
+      <h3>Scoreboard</h3>
+      <div id="roundEndScoreboard" class="mini-scoreboard"></div>
+      <button id="nextTurnBtn" class="btn btn-primary btn-lg" type="button">Next Turn ➡️</button>
+    </div>
+  </section>
+
+  <!-- FINAL SCREEN -->
+  <section id="screen-final" class="screen">
+    <div class="card final-card">
+      <h1 class="final-emoji">🏆</h1>
+      <h2 id="finalWinner">Team 1 Wins!</h2>
+      <p class="final-sub">Best lips at the table.</p>
+      <div id="finalScoreboard" class="mini-scoreboard"></div>
+      <button id="playAgainBtn" class="btn btn-primary btn-lg" type="button">Play Again 👄</button>
+    </div>
+  </section>
+
+</div>
+
+<script src="cards.js?v=1"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
