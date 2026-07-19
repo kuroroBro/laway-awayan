@@ -15,7 +15,7 @@ const CATEGORIES = {
     { phrase: "Backpack" }, { phrase: "Rainbow" }, { phrase: "Octopus" },
     { phrase: "Trampoline" }, { phrase: "Refrigerator" }, { phrase: "Helicopter" }
   ],
-  "Sarap Pinoy": [
+  "Filipino Eats": [
     { phrase: "Adobo" }, { phrase: "Sinigang" }, { phrase: "Lechon" },
     { phrase: "Halo-Halo" }, { phrase: "Pancit" }, { phrase: "Lumpia" },
     { phrase: "Sisig" }, { phrase: "Tocino" }, { phrase: "Bibingka" },
@@ -55,10 +55,10 @@ const CATEGORIES = {
     { phrase: "Anteater" }, { phrase: "Platypus" }, { phrase: "Armadillo" },
     { phrase: "Mongoose" }, { phrase: "Walrus" }
   ],
-  "Laro Natin": [
+  "Sports & Games": [
     { phrase: "Basketball" }, { phrase: "Swimming" }, { phrase: "Boxing" },
     { phrase: "Push-Up" }, { phrase: "Jump Rope" }, { phrase: "Patintero" },
-    { phrase: "Tug of War" }, { phrase: "Sipa" }, { phrase: "Piko" },
+    { phrase: "Rope Pull" }, { phrase: "Sipa" }, { phrase: "Piko" },
     { phrase: "Bowling" }, { phrase: "Skateboarding" }, { phrase: "Yoga" },
     { phrase: "Volleyball" }, { phrase: "Badminton" }, { phrase: "Wrestling" },
     { phrase: "Karate" }, { phrase: "Cheer Dance" }, { phrase: "Arm Wrestle" },
@@ -75,7 +75,7 @@ const CATEGORIES = {
     { phrase: "Buffering" }, { phrase: "Low Battery" }, { phrase: "Airplane Mode" },
     { phrase: "Slow Motion" }, { phrase: "Face Filter" }
   ],
-  "Saan Tayo": [
+  "Places to Go": [
     { phrase: "Boracay" }, { phrase: "Palawan" }, { phrase: "Baguio" },
     { phrase: "Tokyo" }, { phrase: "Paris" }, { phrase: "New York" },
     { phrase: "Dubai" }, { phrase: "Cebu" }, { phrase: "Siargao" },
@@ -85,7 +85,7 @@ const CATEGORIES = {
     { phrase: "Mount Fuji" }, { phrase: "Niagara Falls" }, { phrase: "Antarctica" },
     { phrase: "Machu Picchu" }, { phrase: "Sahara" }
   ],
-  "Random Sabaw": [
+  "Everyday Chaos": [
     { phrase: "Alarm Clock" }, { phrase: "Traffic Jam" }, { phrase: "Karaoke" },
     { phrase: "Brownout" }, { phrase: "Tricycle" }, { phrase: "Jeepney" },
     { phrase: "Sari-Sari Store" }, { phrase: "Rubber Slippers" }, { phrase: "Fiesta" },

@@ -11,9 +11,9 @@
 
 ## Phase 2 - Deck
 
-- [x] Author `cards.js`: 9 new categories (Big Mouth Basics, Sarap Pinoy,
-      Star Power, Screen Time, Wild Kingdom, Laro Natin, Internet Famous,
-      Saan Tayo, Random Sabaw) — none reused from `fluffy-Neanderthal` —
+- [x] Author `cards.js`: 9 new categories (Big Mouth Basics, Filipino Eats,
+      Star Power, Screen Time, Wild Kingdom, Sports & Games, Internet Famous,
+      Places to Go, Everyday Chaos) — none reused from `fluffy-Neanderthal` —
       every phrase one or two words, ~23-24 cards per category (~210 total).
 - [x] Card-shape guard: every entry hand-checked at 1-2 words; no category
       left empty.
@@ -70,5 +70,5 @@
 ## Phase 6 - Ship
 
 - [x] README with how-to-play and SDD links.
-- [ ] Commit and push to `main`; verify `laway-awayan.gondoit.work` serves
+- [x] Commit and push to `main`; verify `laway-awayan.gondoit.work` serves
       the new content after GitHub Pages picks it up.
