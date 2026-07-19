@@ -28,10 +28,6 @@
   // ---------- helpers ----------
   function $(id) { return document.getElementById(id); }
 
-  function wordCount(phrase) {
-    return phrase.trim().split(/\s+/).filter(Boolean).length;
-  }
-
   function shuffle(arr) {
     const a = arr.slice();
     for (let i = a.length - 1; i > 0; i--) {
@@ -315,10 +311,7 @@
     }
     if (categoryEl) categoryEl.textContent = state.currentCard.category;
     if (phraseEl) phraseEl.textContent = state.currentCard.phrase;
-    if (ptsEl) {
-      const pts = wordCount(state.currentCard.phrase);
-      ptsEl.textContent = `worth +${pts}`;
-    }
+    if (ptsEl) ptsEl.textContent = "worth +1";
   }
 
   function nextCard() {
@@ -371,7 +364,7 @@
     state.turnLog.push({
       category: state.currentCard.category,
       phrase: state.currentCard.phrase,
-      points: wordCount(state.currentCard.phrase),
+      points: 1,
       action
     });
   }
@@ -379,7 +372,7 @@
   function handleGotIt() {
     if (state.timeLeft <= 0) return;
     logAction("got");
-    currentTurnTeam().score += wordCount(state.currentCard.phrase);
+    currentTurnTeam().score += 1;
     updatePlayHeader();
     nextCard();
   }

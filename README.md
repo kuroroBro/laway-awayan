@@ -17,10 +17,10 @@ runs out.
 3. **Mouth the clue** — one word or two words, never more. No sound, no
    whispering, no mouthing exaggerated syllables — just silently shape the
    words with your mouth while your team watches closely.
-4. Tap **Got it!** the instant your team shouts the right answer (one-word
-   clues are worth 1 point, two-word clues are worth 2), or **Skip** to
-   move on. There is no penalty for anything — this game only scores
-   forward.
+4. Tap **Got it!** the instant your team shouts the right answer — every
+   correct guess is worth a flat 1 point, whether the clue was one word or
+   two — or **Skip** to move on. There is no penalty for anything — this
+   game only scores forward.
 5. When the timer runs out, review the turn: tap any card in the list to
    flip it between Got it / Skip if a call was missed in the moment.
 6. After every team's turns are up, the highest score wins (ties are shown

@@ -110,9 +110,8 @@ Acceptance criteria:
 As a group, we want a fair scoring scheme and a clear winner at the end.
 
 Acceptance criteria:
-- A correctly-guessed one-word clue scores 1 point; a correctly-guessed
-  two-word clue scores 2 points — rewarding the harder two-word clues
-  without needing any penalty mechanic.
+- Every correctly-guessed clue scores a flat 1 point, whether it was one
+  word or two — no penalty mechanic, no per-word weighting.
 - After the last turn in the queue, the team(s) with the highest score
   win; a tie is shown as a tie, not broken arbitrarily.
 - "Play again" returns to the setup screen with the same teams and
@@ -147,7 +146,7 @@ Acceptance criteria:
 
 ## Key Entities
 
-- **Card**: `category`, `phrase` (1-2 words), implicit `points` (word count).
+- **Card**: `category`, `phrase` (1-2 words), flat `points` value of 1.
 - **Team**: `id`, `name`, `color`, `score`.
 - **Category**: a named list of Cards, independently toggleable in setup.
 - **Turn**: the active team, the shuffled per-turn card sequence seen, and

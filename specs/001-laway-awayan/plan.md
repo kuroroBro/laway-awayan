@@ -30,16 +30,14 @@ LICENSE, CNAME, README.md
 Each card in `cards.js` is:
 
 ```js
-{ phrase: "Banana" }        // 1 word -> worth 1 point
-{ phrase: "Ice Cream" }     // 2 words -> worth 2 points
+{ phrase: "Banana" }        // 1 word -> worth +1
+{ phrase: "Ice Cream" }     // 2 words -> also worth +1
 ```
 
-Points are never stored on the card itself — `phrase.trim().split(/\s+/).length`
-derives the point value at score time, so authoring a card is just picking
-the words; nothing else to keep in sync. A card is rejected at deck-build
-time (dev-time assertion, not a user-facing error) if it has zero or more
-than two words, guarding `FR-3` structurally rather than trusting every
-entry to have been typed correctly.
+Every got-it is worth a flat +1 regardless of word count — points are not
+derived from or stored on the card at all. The 1-2 word cap on `phrase`
+still matters for mouthability (`FR-3`), it just no longer affects
+scoring.
 
 `CATEGORIES` is a plain object, `{ [categoryName]: Card[] }`, exactly
 mirroring `fluffy-Neanderthal/cards.js`'s `DECK` shape minus the `top`
@@ -68,15 +66,14 @@ removed:
 
 What's removed or changed from the sibling's engine:
 
-- **`ACTION_POINTS`/`ACTION_ICONS` shrink to two entries**: `{ got: <word
-  count>, skip: 0 }` — no `clubbed` entry, no penalty branch anywhere.
+- **`ACTION_POINTS`/`ACTION_ICONS` shrink to two entries**: `{ got: 1,
+  skip: 0 }` — no `clubbed` entry, no penalty branch anywhere.
   `handleClubbed()`, `flashClub()`, and the club-flash DOM/CSS are deleted
   outright, not just hidden.
 - **Card shape loses the `top`/`phrase` split.** `renderCard()` shows one
   `phrase` field; `handleTopWord()` is deleted; the sibling's `handleFullPhrase()`
-  becomes this game's single `handleGotIt()`, scoring
-  `phrase.trim().split(/\s+/).length` points (1 or 2) instead of a fixed
-  `+3`.
+  becomes this game's single `handleGotIt()`, scoring a flat `+1` instead
+  of a fixed `+3` or a per-word value.
 - **Round log's per-entry toggle only cycles two states** (`got`/`skip`),
   not three — the log UI's action-icon row loses its third button.
 
@@ -108,10 +105,10 @@ background (no hero photo needed for the look to land).
 
 - Manual static smoke test from a local HTTP server: setup renders with
   live card counts, handoff names the right team and color, a card scores
-  the right point value per word count on "Got it," "Skip" never changes
-  score, the timer ends the turn at zero, the round-end log's toggle
-  recomputes score live, the final screen picks the right winner (including
-  a tie), and "Play again" returns to setup with teams intact.
+  a flat +1 on "Got it," "Skip" never changes score, the timer ends the
+  turn at zero, the round-end log's toggle recomputes score live, the
+  final screen picks the right winner (including a tie), and "Play again"
+  returns to setup with teams intact.
 - Live two-pass Playwright run driving the whole game loop end to end
   (multiple turns across teams) before shipping, since there is no
   automated test suite for this sibling-style project (matching its own
@@ -130,3 +127,8 @@ background (no hero photo needed for the look to land).
   no visual gap resulted. Revisit generating real hero art once the
   Codex/image-gen path is working again; nothing else in the build depends
   on it.
+- **v2** (2026-07-19): Deck expanded from ~24 to 100 cards per category
+  (900 total). Scoring simplified from word-count-based (+1 for a
+  one-word clue, +2 for a two-word clue) to a flat +1 per correct guess —
+  the 1-2 word cap on `phrase` remains for mouthability but no longer
+  drives points. `wordCount()` was removed from `app.js` as dead code.

@@ -14,9 +14,10 @@
 - [x] Author `cards.js`: 9 new categories (Big Mouth Basics, Filipino Eats,
       Star Power, Screen Time, Wild Kingdom, Sports & Games, Internet Famous,
       Places to Go, Everyday Chaos) — none reused from `fluffy-Neanderthal` —
-      every phrase one or two words, ~23-24 cards per category (~210 total).
-- [x] Card-shape guard: every entry hand-checked at 1-2 words; no category
-      left empty.
+      every phrase one or two words, 100 cards per category (900 total).
+- [x] Card-shape guard: every entry script-checked at 1-2 words with zero
+      in-category or cross-category duplicate phrases; no category left
+      empty. See plan.md Changelog v2.
 
 ## Phase 3 - Rules engine (`app.js`)
 
@@ -26,8 +27,10 @@
       changed to `laway.` so the two games never collide in the same
       browser).
 - [x] Replaced the two-tier top/phrase card handling with a single
-      `handleGotIt()` scoring by word count (1 or 2) via `wordCount()`,
-      plus `handleSkip()`.
+      `handleGotIt()` scoring a flat +1 per correct guess, plus
+      `handleSkip()`. (Originally scored by word count via `wordCount()`;
+      simplified to flat +1 in plan.md Changelog v2, and `wordCount()`
+      removed as dead code.)
 - [x] Deleted the clubbed mechanic entirely: no `ACTION_POINTS`/`clubbed`
       entry, no `handleClubbed()`, no club-flash state, DOM hooks, or CSS
       animations — confirmed via a live DOM query for any club-related
